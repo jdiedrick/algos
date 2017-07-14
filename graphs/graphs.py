@@ -94,4 +94,31 @@ with open("graph.txt", "r") as f:
 #			print splitEdge
 			g.addEdge(startVertex, splitEdge[0], splitEdge[1])
 
-print g.numVertices
+#print g.getVertices()
+
+
+def dijkstra(graph, initial):
+	visited = {initial: 0}
+	path = {}
+	vertices = set()
+	for v in g.getVertices():
+		vertices.add(v)
+	print vertices
+	
+	while vertices:
+		min_vertex = None
+		for vertex in vertices:
+			if vertex in visited:
+				if min_vertex is None:
+					min_vertex  = vertex
+				elif visited[vertex] < visited[min_vertex]:
+					min_vertex = vertex
+		if min_vertex is None:
+			break
+
+		vertices.remove(min_vertex)
+		current_weight = visited[min_vertex]
+
+	print "ok"
+
+dijkstra(g, '1')
